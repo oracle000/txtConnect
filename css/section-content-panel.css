@@ -1,0 +1,25 @@
+div.smsBlastHeader {
+    background-color: #474747;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 0px 20px;
+    color: #fff;
+}
+div.smsBlastHeader .icon-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+div.smsBlastHeader .icon-container p {
+    margin: 0 10px;
+}
+
+div.smsBlastHeader .icon-container i {
+    font-size: 30px;
+}
+div.smsBlastHeader .icon-title {
+    margin: 0px;
+}
