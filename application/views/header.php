@@ -41,9 +41,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$("div#hdrtabs span").click(function(){
 				NProgress.start();
 				$("div#hdrtabs span").each(function(){
-					$(this).css('border-bottom','4px solid transparent');
+					$(this).css('border-right', '10px solid transparent');
 				});
-				$(this).css('border-bottom','4px solid #ff7979');
+				$(this).css('border-right', '10px solid #cacead');
 				NProgress.done();
 				
 			});
