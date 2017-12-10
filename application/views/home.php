@@ -43,7 +43,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<span ng-show="adminmodule == 1" id="users" data-ripple ng-click="usertab()">
 					<i class="fa fa-users" aria-hidden="true"></i>USERS
 				</span>
-				
+				<span ng-show="adminmodule == 1" id="users" data-ripple ng-click="usertab()">
+					<i class="fa fa-users" aria-hidden="true"></i>SYSTEM CONFIG
+				</span>
 			</div>
 		</section>
 		<section class="right-nav">

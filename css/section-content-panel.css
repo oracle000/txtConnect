@@ -87,3 +87,15 @@ section.left-nav #hdrtabs {
 section.right-nav {
     width: inherit;
 }
+
+
+section.right-nav div#reportgroup,
+section.right-nav div#usercontainer,
+section.right-nav div#groupmsg,
+section.right-nav div#pbcontainer {
+    height: calc(100vh - 190px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: block;
+}
+
