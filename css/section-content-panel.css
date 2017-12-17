@@ -99,3 +99,41 @@ section.right-nav div#pbcontainer {
     display: block;
 }
 
+
+
+/* system configuration */
+div#sysconfig {
+    display: none;
+}
+div#sysconfig .cont {
+    display: flex;
+}
+div#sysconfig .ipadd {
+    display: flex;
+    align-items: center;
+    margin: 5px 0 5px 30px;
+}
+div#sysconfig .ipadd p {
+    margin: 0;
+    width: 150px;
+}
+div#sysconfig .model-table p{
+    margin-bottom: 0;
+    margin-left: 30px;
+    font-size: 30px;
+}
+div#sysconfig .model-table .table-inside {
+    height: calc(100vh - 260px);
+    overflow-y: scroll;
+}
+
+
+/* new modem */
+div#newmodem {
+    height: calc(100vh - 190px);
+    overflow-y: scroll;
+}
+
+div#newmodem span#labelform {
+    position: relative;
+}

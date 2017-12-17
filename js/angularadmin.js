@@ -138,7 +138,7 @@ txtconnectApp.controller("appcontroller",['$scope','$http','$interval','$locatio
 	
 	$scope.msgtab = function(){
 		isloggedin();
-		$("#newusers").fadeOut();
+		$("#newusers, #sysconfig").fadeOut();
 		$("#messages").fadeIn(500);
 		$scope.showmsgdtls();
 		$scope.tab = 'msg';
@@ -151,13 +151,13 @@ txtconnectApp.controller("appcontroller",['$scope','$http','$interval','$locatio
 		isloggedin();
 		if($scope.changepbmodel == 1){
 			$("#pbcontainer, #phonebook").fadeIn(500);
-			$("#newusers, #groupmsg, #msgcontainer, #messages, #newsms, #newmsg, #reportgroup, #newphonebook, #newgroup, #reportgroup,  #userscontainer").hide();
+			$("#newusers, #newmodem, #groupmsg, #msgcontainer, #messages, #newsms, #newmsg, #reportgroup, #newphonebook, #newgroup, #reportgroup,  #userscontainer").hide();
 			$scope.tab = 'pb';
 			displayaddbtn();
 			getphonebook();
 		}else{
 			$("#pbgroupcontainer, #phonebook").fadeIn(500);
-			$("#newusers, #groupmsg, #msgcontainer, #messages, #newsms, #newmsg, #reportgroup, #newphonebook, #pbcontainer, #newgroup, #newusers, #userscontainer, #reportgroup").hide();
+			$("#newusers, #groupmsg, #newmode, #msgcontainer, #messages, #newsms, #newmsg, #reportgroup, #newphonebook, #pbcontainer, #newgroup, #newusers, #userscontainer, #reportgroup").hide();
 			$scope.tab = 'pb';
 			displayaddbtn();
 			getgroups();
@@ -166,15 +166,18 @@ txtconnectApp.controller("appcontroller",['$scope','$http','$interval','$locatio
 	$scope.selectuserphonebook = [];
 	
 	
-	$scope.rptgrptab = function(){
+	$scope.rptgrptab = function(){		
 		isloggedin();
-		$("#reportgroup, #newsms").fadeIn(500);
+		$("#reportgroup, #newsms, #addnew").fadeIn(500);
 		$("#groupmsg, #msgcontainer, #messages, #newmsg, #pbcontainer, #phonebook, #newphonebook, #pbgroupcontainer, #newgroup, #newusers, #userscontainer").hide();
 		$scope.titlelabel = "Report Groups";
 		$scope.tab = 'rptgrptab';
-		displayaddbtn();
+		// displayaddbtn();
 		getrptdtls();
 	};
+
+
+
 	
 	$scope.hometab = function(){
 		$scope.tab = 'home';
@@ -186,12 +189,21 @@ txtconnectApp.controller("appcontroller",['$scope','$http','$interval','$locatio
 		isloggedin();
 		$scope.tab = 'users';
 		$scope.titlelabel = "Users Masterfile";
-		$("#groupmsg, #msgcontainer, #messages, #newmsg, #pbcontainer, #phonebook, #newphonebook, #pbgroupcontainer, #newgroup, #newusers, #reportgroup").hide();
+		$("#groupmsg, #msgcontainer, #messages, #newmsg, #newmodem, #pbcontainer, #phonebook, #newphonebook, #pbgroupcontainer, #newgroup, #newusers, #reportgroup, #sysconfig, #newreport").hide();
 		$("#userscontainer, #newsms").fadeIn(500);
 		displayaddbtn();
 		getallusers();
 	}
 	
+
+	$scope.sysconfigtab = function() {
+		isloggedin();
+		$scope.tab = 'sysconfig';
+		$scope.titlelabel = "System Configuration";
+		$("#groupmsg, #msgcontainer, #messages, #newmodem, #newmsg, #pbcontainer, #phonebook, #newphonebook, #pbgroupcontainer, #newgroup, #newusers, #reportgroup, #userscontainer, #newreport	").hide();
+		$("#sysconfig, #addnew").fadeIn(500);
+		displayaddbtn();
+	}
 	
 	$scope.sendsms = function(e){
 		//var url = 'http://172.16.82.95:7080/sendsms?phone='+e['number']+'&text='+e['msg']+'&password=emman';
@@ -267,10 +279,10 @@ txtconnectApp.controller("appcontroller",['$scope','$http','$interval','$locatio
 	/* ADD NEW BUTTON */
 	$scope.group = {};
 	$scope.titlelabel = "New Phonebook Group";
-	$scope.addnew = function(){
+	$scope.addnew = function(){		
 		//new msg
 		if($scope.tab == 'msg'){
-			$("#groupmsg, #pbcontainer, #msgcontainer, #messages, #phonebook, #newusers, #newgroup, #pbgroupcontainer, #userscontainer, #reportgroup").hide();
+			$("#groupmsg, #pbcontainer, #msgcontainer, #messages, #phonebook, #newusers, #newgroup, #pbgroupcontainer, #userscontainer, #reportgroup, #newmodem, #newreport").hide();
 			$scope.titlelabel = "New SMS";
 			$scope.getautoinput();
 			$("#newsms, #newmsg").fadeIn(500);
@@ -283,14 +295,14 @@ txtconnectApp.controller("appcontroller",['$scope','$http','$interval','$locatio
 			$scope.pb.name = "";
 			//console.log($scope.pb.id);
 			$("#newphonebook").fadeIn(500);
-			$("#groupmsg, #pbcontainer, #msgcontainer, #messages, #phonebook, #newsms, #newmsg, #newgroup, #pbgroupcontainer, #newgroup, #newusers, #userscontainer, #reportgroup").hide();
+			$("#groupmsg, #pbcontainer, #msgcontainer, #messages, #phonebook, #newsms, #newmsg, #newgroup, #pbgroupcontainer, #newgroup, #newusers, #userscontainer, #reportgroup, #newmodem, #newreport").hide();
 		}
 		else if($scope.tab == 'pb' && $scope.changepbmodel == '2'){
 			$scope.titlelabel = 'Add New Phonebook Group';
 			$scope.group.id = 0;
 			$scope.group.name = "";
 			$("#newgroup").fadeIn(500);
-			$("#groupmsg, #pbcontainer, #msgcontainer, #messages, #phonebook, #newsms, #newmsg, #newphonebook, #pbgroupcontainer, #newusers, #userscontainer, #reportgroup").hide();
+			$("#groupmsg, #pbcontainer, #msgcontainer, #messages, #phonebook, #newsms, #newmsg, #newphonebook, #pbgroupcontainer, #newusers, #userscontainer, #reportgroup, #newmodem, #newreport").hide();
 		}else if($scope.tab == 'users'){
 			$scope.user = {};
 			$scope.titlelabel = 'Add New Users';
@@ -303,6 +315,16 @@ txtconnectApp.controller("appcontroller",['$scope','$http','$interval','$locatio
 			$("#groupmsg, #pbcontainer, #msgcontainer, #messages, #phonebook, #newsms, #newmsg, #newphonebook, #pbgroupcontainer, #userscontainer, #reportgroup").hide();
 			$("#newusers").fadeIn(500);
 			//newusers
+		}else if ($scope.tab == 'sysconfig') {
+			$scope.titlelabel = 'Add New Modem';
+			console.log('aaa');
+			$("#sysconfig").hide();
+			$("#newmodem").fadeIn(500);
+		}else if ($scope.tab == 'rptgrptab') {	
+			console.log('xxx');
+			$scope.titlelabel = 'Add New Report';		
+			$("#reportgroup, #sysconfig, #newreport, #newmodem").hide();
+			$("#newreport").fadeIn(500);
 		}
 			//newgroup
 		//console.log($scope.changepbmodel);

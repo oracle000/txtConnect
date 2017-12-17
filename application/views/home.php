@@ -43,8 +43,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<span ng-show="adminmodule == 1" id="users" data-ripple ng-click="usertab()">
 					<i class="fa fa-users" aria-hidden="true"></i>USERS
 				</span>
-				<span ng-show="adminmodule == 1" id="users" data-ripple ng-click="usertab()">
-					<i class="fa fa-users" aria-hidden="true"></i>SYSTEM CONFIG
+				<span ng-show="adminmodule == 1" id="users" data-ripple ng-click="sysconfigtab()">
+				<i class="fa fa-cogs" aria-hidden="true"></i>SYSTEM CONFIG
 				</span>
 			</div>
 		</section>
@@ -201,6 +201,141 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</tbody>
 						</table>
 					</div>
+					<div id="sysconfig">
+						<div class="cont">
+							<div class="ipadd">
+								<p>Set Local IP Address : </p>
+								<input type="text" id="searchinput" ng-model="filterusersmodel" class="ng-pristine ng-valid ng-empty ng-touched">
+							</div>						
+							<div class="ipadd">
+								<p>Set Server IP Address : </p>
+								<input type="text" id="searchinput" ng-model="filterusersmodel" class="ng-pristine ng-valid ng-empty ng-touched">
+							</div>
+						</div>
+						<div class="model-table">
+							<p>MODEMS</p>
+							<div class="table-inside">
+								<table id="tblmsg">
+									<thead>
+										<tr>
+											<td>MODEM NAME</td>
+											<td>MODEM NUMBER</td>
+											<td>MODEM IP ADDRES</td>
+											<td>PORT NUMBER</td>
+											<td>MODEM USERS</td>
+											<td>PASSWORD</td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+										</tr>
+										<tr>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+										</tr>
+										<tr>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+										</tr>
+										<tr>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+										</tr>
+										<tr>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+										</tr>
+										<tr>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+										</tr>
+										<tr>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+										</tr>
+										<tr>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+										</tr>
+										<tr>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+										</tr>
+										<tr>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+										</tr>
+										<tr>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+										</tr>
+										<tr>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+										</tr>
+										<tr>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+											<td>Lorem Ipsum</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>					
+					</div>
 					<div id="groupmsg" style="display:none">
 						<table id="tblmsg">
 							<thead>
@@ -276,29 +411,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<form name="saveusersform" novalidate>
 							<input type="hidden" ng-model="user.id" />
 							
-							<span id="labelform"><span class="inputanimate">Fullname</span><input id="pbnumber" name="fullname" type="text" ng-model="user.fullname" ng-minlength="5" required /></span>
+							<span id="labelform">
+								<span class="inputanimate">Fullname</span>
+								<input id="pbnumber" name="fullname" type="text" ng-model="user.fullname" ng-minlength="5" required />
+							</span>
 							<div class="error" style="float:left;text-indent:40px;height:40px;">&nbsp;
 								<span ng-show="saveusersform.fullname.$invalid && saveusersform.fullname.$touched">*Required</span>
 							</div>
-							<span id="labelform"><span class="inputanimate">Username</span><input id="username" name="username" type="text" ng-model="user.name" ng-minlength="2" required /></span>
+							<span id="labelform">
+								<span class="inputanimate">Username</span>
+								<input id="username" name="username" type="text" ng-model="user.name" ng-minlength="2" required />
+							</span>
 							<div class="error" style="float:left;text-indent:40px;height:40px;">&nbsp;
 								<span ng-show="saveusersform.username.$invalid && saveusersform.username.$touched">*Required</span>
 							</div>
-							<span id="labelform"><span class="inputanimate">Password</span><input id="pbname" name="password" type="password" ng-model="user.password" ng-minlength="2" required /></span>
+							<span id="labelform">
+								<span class="inputanimate">Password</span>
+									<input id="pbname" name="password" type="password" ng-model="user.password" ng-minlength="2" required />
+								</span>
 							<div class="error" style="float:left;text-indent:40px;height:40px;">&nbsp;
 								<span ng-show="saveusersform.password.$invalid && saveusersform.password.$touched">*Required</span>
 							</div>
 							<span id="labelform1" style="color:silver;margin-left:0px;);">Admin Flag</span>
-								<div style="float:left;margin-left:40px;width:calc(100% - 40px">
-									<select ng-model="user.adminflag" id="adminflag" name="adminflag" ng-options="e.value as e.name for e in adminflagselect"></select>
-								</div>
-							</span>
+							<div style="float:left;margin-left:40px;width:calc(100% - 40px">
+								<select ng-model="user.adminflag" id="adminflag" name="adminflag" ng-options="e.value as e.name for e in adminflagselect"></select>
+							</div>
+							
 							<span class="btnaddpb" style="float:left;margin-top:20px;height:60px;">
 								<button ng-click="usertab()" class="cancelbtn">DISCARD</button>
 								<button ng-click="saveusers(user)" class="savebtn" ng-disabled="saveusersform.fullname.$invalid || saveusersform.fullname.$error.required || saveusersform.username.$invalid || saveusersform.username.$error.required || saveusersform.password.$invalid || saveusersform.password.$error.required">SAVE</button>
 								<!--  || sendsmsform.smsmsg.$dirty && sendsmsform.smsmsg.$invalid -->
 							</span>
-						</span>
+						
 						
 						</form>
 					</div>
@@ -314,6 +458,99 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</span>
 						</form>
 						</span>
+					</div>
+
+					<div id="newmodem" style="display: none;">
+						<span id="titlewrapper" style="margin-bottom:30px;">{{ titlelabel }}</span>
+						<form name="saveusersform" novalidate>
+							<input type="hidden" ng-model="user.id" />														
+							<span id="labelform">
+								<span class="inputanimate">Modem Name</span>
+								<input id="pbnumber" name="fullname" type="text" ng-model="user.fullname" ng-minlength="5" required />
+							</span>
+							<div class="error" style="float:left;text-indent:40px;height:40px;">&nbsp;
+								<span ng-show="saveusersform.fullname.$invalid && saveusersform.fullname.$touched">*Required</span>
+							</div>
+
+							<span id="labelform">
+								<span class="inputanimate">Modem Number</span>
+								<input id="username" name="username" type="text" ng-model="user.name" ng-minlength="2" required />
+							</span>
+							<div class="error" style="float:left;text-indent:40px;height:40px;">&nbsp;
+								<span ng-show="saveusersform.username.$invalid && saveusersform.username.$touched">*Required</span>
+							</div>
+
+							<span id="labelform">
+								<span class="inputanimate">Modem IP Address</span>
+									<input id="pbname" name="password" type="text"  ng-minlength="2" required />
+								</span>
+							<div class="error" style="float:left;text-indent:40px;height:40px;">&nbsp;
+								<span ng-show="saveusersform.password.$invalid && saveusersform.password.$touched">*Required</span>
+							</div>
+
+							<span id="labelform">
+								<span class="inputanimate">Port Number</span>
+									<input id="pbname" name="password" type="text"  ng-minlength="2" required />
+								</span>
+							<div class="error" style="float:left;text-indent:40px;height:40px;">&nbsp;
+								<span ng-show="saveusersform.password.$invalid && saveusersform.password.$touched">*Required</span>
+							</div>
+
+							<span id="labelform">
+								<span class="inputanimate">Modem Users</span>
+									<input id="pbname" name="password" type="text"  ng-minlength="2" required />
+								</span>
+							<div class="error" style="float:left;text-indent:40px;height:40px;">&nbsp;
+								<span ng-show="saveusersform.password.$invalid && saveusersform.password.$touched">*Required</span>
+							</div>
+
+							<span id="labelform">
+								<span class="inputanimate">Password</span>
+									<input id="pbname" name="password" type="password" ng-model="user.password" ng-minlength="2" required />
+								</span>
+							<div class="error" style="float:left;text-indent:40px;height:40px;">&nbsp;
+								<span ng-show="saveusersform.password.$invalid && saveusersform.password.$touched">*Required</span>
+							</div>
+
+							
+							
+							<span class="btnaddpb" style="float:left;margin-top:20px;height:60px;">
+								<button ng-click="usertab()" class="cancelbtn">DISCARD</button>
+								<button ng-click="saveusers(user)" class="savebtn" ng-disabled="saveusersform.fullname.$invalid || saveusersform.fullname.$error.required || saveusersform.username.$invalid || saveusersform.username.$error.required || saveusersform.password.$invalid || saveusersform.password.$error.required">SAVE</button>
+								<!--  || sendsmsform.smsmsg.$dirty && sendsmsform.smsmsg.$invalid -->
+							</span>
+						
+						</form>
+					</div>
+
+
+					<div id="newreport" style="display: none">
+						<span id="titlewrapper" style="margin-bottom:30px;">{{ titlelabel }}</span>
+						<form name="saveusersform" novalidate>
+							<input type="hidden" ng-model="user.id" />
+							
+							<span id="labelform">
+								<span class="inputanimate">Report Name</span>
+								<input id="pbnumber" name="fullname" type="text" ng-model="user.fullname" ng-minlength="5" required />
+							</span>
+							<div class="error" style="float:left;text-indent:40px;height:40px;">&nbsp;
+								<span ng-show="saveusersform.fullname.$invalid && saveusersform.fullname.$touched">*Required</span>
+							</div>
+							<span id="labelform">
+								<span class="inputanimate">PhoneBook</span>
+								<input id="username" name="username" type="text"  ng-minlength="2" required />
+							</span>
+							<div class="error" style="float:left;text-indent:40px;height:40px;">&nbsp;
+								<span ng-show="saveusersform.username.$invalid && saveusersform.username.$touched">*Required</span>
+							</div>
+							
+							<span id="labelform1" style="color:silver;margin-left:0px;);">Is Active</span>
+							<div style="float:left;margin-left:40px;width:calc(100% - 40px">
+								<select ng-model="user.adminflag" id="adminflag" name="IsActive" ng-options="e.value as e.name for e in adminflagselect"></select>
+							</div>																		
+						</form>
+
+
 					</div>
 					<!--
 					<div id="newschedsms" style="display:none;">
